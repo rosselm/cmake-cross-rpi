@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.20.0)
 set(CMAKE_TOOLCHAIN_FILE $ENV{HOME}/rpi-toolchain.cmake)
 project(cmake-cpp-arm-gnueabihf VERSION 0.1.0)
 
