@@ -7,6 +7,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(cmake-cpp-arm-gnueabihf main.cpp)
 add_subdirectory(src)
+target_link_libraries (cmake-cpp-arm-gnueabihf LINK_PUBLIC gpio)
+
+# to get rid of the error: undefined reference to `pthread_create'
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+target_link_libraries(cmake-cpp-arm-gnueabihf PRIVATE Threads::Threads)
 
 # C version als builds correctly
 # add_executable(cmake-cpp-arm-gnueabihf hello.c)
