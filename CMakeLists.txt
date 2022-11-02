@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(cmake-cpp-arm-gnueabihf main.cpp)
+add_executable(cmake-cpp-arm-gnueabihf main.cpp gsl_tests.cpp gsl_tests.h)
 
 # --> THIS if for my own gpio (the one from derek molloy)
 # add_subdirectory(src)
@@ -28,6 +28,20 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 target_link_libraries(cmake-cpp-arm-gnueabihf PRIVATE Threads::Threads)
 #####
+
+### for the GSL : (C++) Guidelines Support Library
+include(FetchContent)
+
+FetchContent_Declare(GSL
+    GIT_REPOSITORY "https://github.com/microsoft/GSL"
+    GIT_TAG "v4.0.0"
+    GIT_SHALLOW ON
+)
+
+FetchContent_MakeAvailable(GSL)
+
+target_link_libraries(cmake-cpp-arm-gnueabihf PRIVATE Microsoft.GSL::GSL)
+### end GSL
 
 # C version als builds correctly
 # add_executable(cmake-cpp-arm-gnueabihf hello.c)
