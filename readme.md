@@ -49,6 +49,8 @@ rsync -vrzLR --safe-links --include 'libwiringPi*' --exclude '/usr/lib/*'  pi@ra
 
 ### Toolchain
 
+You need to set the toolchain **before** the project in the root CMakeLists.txt: in this repo example: `set(CMAKE_TOOLCHAIN_FILE $ENV{HOME}/rpi-toolchain.cmake)`.
+
 This setup has been tested with 
 
 ```
