@@ -68,7 +68,7 @@ To get the base paths of both installations on your Mac use:
 - brew --prefix llvm 
 - brew --prefix arm-linux-gnueabihf-binutils
 
-For the purpose of this project the sysroot is located at `$HOME/pisysroot`. This is also used in above rsync (`export MY_PI_SYSROOT=$HOME/pisysroot`)
+For the purpose of this project the sysroot is located at `$HOME/pisysroot`. This is also used in above rsync (`export MY_PI_SYSROOT=$HOME/pisysroot`). An exact copy of what was used in this repo you can find at `/.rpi-toolchain-example.cmake`.
 
 ### CMake toolchain file
 
