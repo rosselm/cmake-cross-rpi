@@ -41,9 +41,9 @@ rsync -rzLR --safe-links pi@raspberrypi.local:/usr/lib/arm-linux-gnueabihf pi@ra
 
 rsync -vrzLR --safe-links --include 'ld*' --include 'lib*' --exclude '*'  pi@raspberrypi.local:/lib sysroot/
 
-# to include usr headers like wiringPi.h
+# to include usr headers like wiringPi.h, pigpio
 rsync -vrzLR --safe-links --include 'wiringPi*' --exclude '/usr/include/*'  pi@raspberrypi.local:/usr/include $MY_PI_SYSROOT/
-# to include usr libs like wiringpi
+# to include usr libs like wiringpi, pigpio
 rsync -vrzLR --safe-links --include 'libwiringPi*' --exclude '/usr/lib/*'  pi@raspberrypi.local:/usr/lib $MY_PI_SYSROOT/
 ```
 
