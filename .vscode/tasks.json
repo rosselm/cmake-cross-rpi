@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "gdbserver",
+            "type": "shell",
+            "command": "scp ${workspaceFolder}/build/hello pi@raspberrypi.local:/home/pi/ && ssh -L9091:localhost:9091 pi@raspberrypi.local 'gdbserver :9091 ~/hello'",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "gdbserver",
+                "fileLocation":"relative",
+                "pattern": [
+                    {
+                        "regexp": "^not\\sok\\s\\d+\\s(.*)$"
+                    },
+                    {
+                        "regexp": "\\s+(.*)$",
+                        "message": 1
+                    },
+                    {
+                        "regexp": "\\s+at\\s(.*):(\\d+):(\\d+)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": {
+                        "regexp": "Process*"
+                    },
+                    "endsPattern": {
+                        "regexp": "Listening on port*"
+                    }
+                }
+            }
+        }   
+    ]
+}

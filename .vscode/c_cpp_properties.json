@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "RPI",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/local/opt/llvm/bin/clang",
+            "cStandard": "c17",
+            "intelliSenseMode": "macos-clang-x86",
+            "cppStandard": "c++20",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "~/rpisysroot/usr/include",
+                    "~/rpisysroot/usr/include/arm-linux-gnueabihf",
+                    "~/rpisysroot/usr/include/arm-linux-gnueabihf/c++/10",
+                    "~/rpisysroot/usr/include/c++/10"
+                ]
+            }
+        }
+    ],
+    "version": 4
+}
